@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+  <configuration>
+    <!-- Setup the transaction manager and data source that are
+         appropriate for your environment
+    -->
+    <environments default"...">
+      <environment id"...">
+        <transactionManager type="...">
+        </transactionManager>
+        <dataSource type="...">
+        </dataSource>
+      </environment>
+    </environments>
+
+    <mappers>
+      <!-- XML mapper files should be listed here -->
+      <mapper resource="test/xml/MyTable_SqlMap.xml" />
+    </mappers>
+
+  </configuration>
