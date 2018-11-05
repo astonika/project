@@ -8,5 +8,6 @@
 	<modules>
 		<module>novel-middleware</module>
 		<module>readinglist</module>
+		<module>springclouddemo</module>
 	</modules>
 </project>

@@ -1,1 +1,3 @@
 # novel-middleware
+
+springclouddemo是springcloud项目 切换active属性激活不同节点开发
