@@ -52,7 +52,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<!-- 拦截器方式配置事物 -->
+	<!-- 拦截器方式配置声明式事务 -->
 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="add*" propagation="REQUIRED" />
