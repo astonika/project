@@ -61,7 +61,7 @@ public class LuceneIndexAndSearchDemo {
 			directory = new RAMDirectory();	 
 			
 			//配置IndexWriterConfig
-			IndexWriterConfig iwConfig = new IndexWriterConfig(Version.LUCENE_40 , analyzer);
+			IndexWriterConfig iwConfig = new IndexWriterConfig(Version.LUCENE_CURRENT, analyzer);
 			iwConfig.setOpenMode(OpenMode.CREATE_OR_APPEND);
 			iwriter = new IndexWriter(directory , iwConfig);
 			//写入索引
@@ -79,7 +79,7 @@ public class LuceneIndexAndSearchDemo {
 			
 			String keyword = "中文分词工具包";			
 			//使用QueryParser查询分析器构造Query对象
-			QueryParser qp = new QueryParser(Version.LUCENE_40, fieldName,  analyzer);
+			QueryParser qp = new QueryParser(Version.LUCENE_CURRENT, fieldName,  analyzer);
 			qp.setDefaultOperator(QueryParser.AND_OPERATOR);
 			Query query = qp.parse(keyword);
 			System.out.println("Query = " + query);
