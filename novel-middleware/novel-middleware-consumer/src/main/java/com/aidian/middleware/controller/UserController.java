@@ -30,8 +30,9 @@ public class UserController {
 	}
 
 	@RequestMapping("/login")
-	public void login(String username, String password) {
-		userService.login(username, password);
+	public void login(String phoneOrEmail, String password) {
+		userService.login(phoneOrEmail, password);
 	}
-
+	
+	
 }

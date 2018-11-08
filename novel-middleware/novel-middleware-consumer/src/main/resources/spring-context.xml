@@ -19,6 +19,5 @@
 			http://dubbo.apache.org/schema/dubbo/dubbo.xsd
             ">
             
-            <import resource="classpath:spring-dubbo-consumer.xml" />
-	
+	<import resource="classpath:spring-dubbo-consumer.xml" />
 </beans>

@@ -1,30 +1,32 @@
 package com.company.project.dao;
 
-import com.company.project.model.Answer;
-import com.company.project.model.AnswerExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.company.project.model.Answer;
+import com.company.project.model.AnswerExample;
+
 public interface AnswerMapper {
-    long countByExample(AnswerExample example);
+	long countByExample(AnswerExample example);
 
-    int deleteByExample(AnswerExample example);
+	int deleteByExample(AnswerExample example);
 
-    int deleteByPrimaryKey(Integer id);
+	int deleteByPrimaryKey(Integer id);
 
-    int insert(Answer record);
+	int insert(Answer record);
 
-    int insertSelective(Answer record);
+	int insertSelective(Answer record);
 
-    List<Answer> selectByExample(AnswerExample example);
+	List<Answer> selectByExample(AnswerExample example);
 
-    Answer selectByPrimaryKey(Integer id);
+	Answer selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Answer record, @Param("example") AnswerExample example);
+	int updateByExampleSelective(@Param("record") Answer record, @Param("example") AnswerExample example);
 
-    int updateByExample(@Param("record") Answer record, @Param("example") AnswerExample example);
+	int updateByExample(@Param("record") Answer record, @Param("example") AnswerExample example);
 
-    int updateByPrimaryKeySelective(Answer record);
+	int updateByPrimaryKeySelective(Answer record);
 
-    int updateByPrimaryKey(Answer record);
+	int updateByPrimaryKey(Answer record);
 }

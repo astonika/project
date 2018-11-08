@@ -29,5 +29,4 @@
 	<!-- <property name="prefix" value="/views/" /> -->
 	<!-- <property name="suffix" value=".jsp"></property> -->
 	<!-- </bean> -->
-
 </beans>
