@@ -12,11 +12,11 @@
 		<plugin type="org.mybatis.generator.plugins.LombokAnnotationPlugin"></plugin>
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
 			<!-- <property name="addGWTInterface" value="true" /> -->
-			<property name="suppressJavaInterface" value="false" />
+			<!-- <property name="suppressJavaInterface" value="false" /> -->
 		</plugin>
 		<!-- <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"></plugin> -->
 		<commentGenerator>
-			<property name="suppressAllComments" value="true" />
+			<!-- <property name="suppressAllComments" value="true" /> -->
 			<property name="addRemarkComments" value="true" />
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
