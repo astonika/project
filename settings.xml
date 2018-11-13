@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 	<localRepository>D:/maven_repo/repository</localRepository>
 	<mirrors>
-<!-- 		<mirror> -->
-<!-- 			<id>alimaven</id> -->
-<!-- 			<mirrorOf>*</mirrorOf> -->
-<!-- 			<name>aliyun maven</name> -->
-<!-- 			<url>http://maven.aliyun.com/nexus/content/repositories/central/</url> -->
-<!-- 		</mirror> -->
+		<mirror>
+			<id>alimaven</id>
+			<mirrorOf>*</mirrorOf>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+		</mirror>
 	</mirrors>
 </settings>
