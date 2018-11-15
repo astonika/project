@@ -9,7 +9,6 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.Query;
-import org.apache.lucene.util.Version;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
@@ -101,7 +100,7 @@ public class SWMCQueryBuilder {
 		}
 
 		// 借助lucene queryparser 生成SWMC Query
-		QueryParser qp = new QueryParser(Version.LUCENE_CURRENT, fieldName, new StandardAnalyzer(Version.LUCENE_CURRENT));
+		QueryParser qp = new QueryParser(fieldName, new StandardAnalyzer());
 		qp.setDefaultOperator(QueryParser.AND_OPERATOR);
 		qp.setAutoGeneratePhraseQueries(true);
 
