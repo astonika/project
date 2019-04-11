@@ -9,5 +9,9 @@
 		<module>novel-middleware</module>
 		<module>readinglist</module>
 		<module>springclouddemo</module>
+		<module>solr/solr</module>
+		<module>solr/solrmanager</module>
+		<module>smssupport</module>
+		<module>activemqdemo</module>
 	</modules>
 </project>

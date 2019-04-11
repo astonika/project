@@ -1,5 +1,7 @@
 package com.aidian.middleware.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,17 +24,25 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("/signin")
+	/**
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value = "/signin", method = GET)
 	@ResponseBody
 	public int signin(String username, String password) {
 		int i = userService.signin(username, password);
 		return i;
 	}
 
+	/**
+	 * @param phoneOrEmail
+	 * @param password
+	 */
 	@RequestMapping("/login")
 	public void login(String phoneOrEmail, String password) {
 		userService.login(phoneOrEmail, password);
 	}
-	
-	
+
 }

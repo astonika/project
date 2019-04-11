@@ -10,6 +10,14 @@ novel-middleware 一个atomikos+activemq+redis架构 分布式事务管理器框架+支持事务的
 -------------------
 springclouddemo是springcloud项目 切换application.properties中spring.profiles.active属性激活不同节点以开发 注册中心、生成者、消费者、断路器、路由网关、分布式配置中心
 
+---------------------
+面对多变动产品经理需求的开发流程（排列有序，不可颠倒）
+1、业务逻辑正确
+2、程序稳定健壮
+3、数据传输存储安全
+4、性能尽量提升
+先写对业务，再处理异常，再保证数据安全，最后再尽量提升性能，前三个是必要项，最后一个是充要项。
+
 
 ----------------
 https://download.springsource.com/release/STS/3.9.6.RELEASE/dist/e4.9/spring-tool-suite-3.9.6.RELEASE-e4.9.0-win32-x86_64.zip

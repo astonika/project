@@ -27,6 +27,7 @@ public class QuestionServiceImpl {
 //		ModifiableSolrParams modifiableSolrParams = new ModifiableSolrParams();
 //		modifiableSolrParams.set("command", "delta-import");
 //		QueryRequest queryRequest = new QueryRequest(modifiableSolrParams);
+//		http://localhost:8080/solr/core1/select?q=id:*
 		SolrQuery solrQuery = new SolrQuery();
 		solrQuery.set("q", "id:*");
 		solrQuery.setIncludeScore(true);

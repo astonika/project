@@ -5,7 +5,7 @@
 	<!-- <properties url="file:///D:\sts-bundle\sts-3.9.5.RELEASE\workspace-sts-3.9.5.RELEASE\readinglist\src\main\resources/generatorConfig.properties" /> -->
 	<!-- <properties resource="generatorConfig.properties" /> -->
 	<!-- <classPathEntry location="D:\maven_repo\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar" /> -->
-	<context introspectedColumnImpl="" id="project" targetRuntime="MyBatis3" defaultModelType="conditional">
+	<context id="project" targetRuntime="MyBatis3" defaultModelType="conditional">
 		<property name="javaFileEncoding" value="UTF-8" />
 		<!-- <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"> -->
 		<!-- </plugin> -->
