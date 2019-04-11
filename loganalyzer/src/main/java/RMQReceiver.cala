@@ -1,0 +1,65 @@
+private class RMQReceiver[T: ClassTag](  
+  amqpHost: String,  
+  amqpPort: Int,  
+  amqpUsername: String,  
+  amqpPassword: String,  
+  amqpVhost: String,  
+  queueName: String,  
+  storageLevel: StorageLevel) extends Receiver[T](storageLevel) with Logging {  
+  
+  val cf = new ConnectionFactory  
+  
+  cf.setHost(amqpHost)  
+  cf.setPort(amqpPort)  
+  cf.setUsername(amqpUsername)  
+  cf.setPassword(amqpPassword)  
+  cf.setVirtualHost(amqpVhost)  
+  
+  val amqpConnection = cf.newConnection();  
+  val amqpChannel = amqpConnection.createChannel();  
+  
+  val queueingConsumer = new QueueingConsumer(amqpChannel)  
+  val amqpConsumerTag = amqpChannel.basicConsume(queueName, true, queueingConsumer)  
+  
+  var blockPushingThread: Thread = null  
+  
+  def onStart() {  
+  
+    val queue = new ArrayBlockingQueue[ByteBuffer](300)  
+  
+    blockPushingThread = new Thread {  
+      setDaemon(true)  
+      override def run() {  
+        while (true) {  
+          val buffer = queue.take()  
+          store(buffer)  
+        }  
+      }  
+    }  
+    blockPushingThread.start()  
+  
+    while (true) {  
+      val delivery = queueingConsumer.nextDelivery(1L)  
+      if (delivery.getEnvelope().getRoutingKey == "realtime.request") {  
+        val message = delivery.getBody  
+        queue.put(ByteBuffer.allocate(message.length).put(message))  
+      }  
+    }  
+  }  
+  
+  def onStop() {  
+    if (blockPushingThread != null) blockPushingThread.interrupt()  
+    if (amqpChannel != null) {  
+      if (amqpConsumerTag != null) {  
+        amqpChannel.basicCancel(amqpConsumerTag)  
+      }  
+      amqpChannel.close()  
+    }  
+  
+    if (amqpConnection != null) {  
+      amqpConnection.close()  
+    }  
+  
+  }  
+  
+}
