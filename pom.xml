@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
+		<module>demo</module>
 		<module>novel-middleware</module>
 		<module>readinglist</module>
 		<module>springclouddemo</module>
@@ -13,5 +14,6 @@
 		<module>solr/solrmanager</module>
 		<module>smssupport</module>
 		<module>activemqdemo</module>
+		<module>mybatis-generator-tool</module>
 	</modules>
 </project>
