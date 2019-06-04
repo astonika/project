@@ -73,8 +73,9 @@ public class LombokAnnotationPlugin extends PluginAdapter {
 		return super.modelRecordWithBLOBsClassGenerated(topLevelClass, introspectedTable);
 	}
 
+	@Override
 	public boolean modelGetterMethodGenerated(Method method, TopLevelClass topLevelClass,
-			IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+											  IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
 		return false;
 	}
 
