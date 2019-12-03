@@ -15,5 +15,6 @@
 		<module>smssupport</module>
 		<module>activemqdemo</module>
 		<module>mybatis-generator-tool</module>
+		<module>jcip</module>
 	</modules>
 </project>
