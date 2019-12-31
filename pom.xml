@@ -8,6 +8,7 @@
 	<modules>
 		<module>demo</module>
 		<module>novel-middleware</module>
+		<module>paas-middleware</module>
 		<module>readinglist</module>
 		<module>springclouddemo</module>
 		<module>solr/solr</module>
