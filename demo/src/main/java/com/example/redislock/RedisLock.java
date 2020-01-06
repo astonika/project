@@ -2,6 +2,7 @@ package com.example.redislock;
 
 import redis.clients.jedis.Jedis;
 
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -11,16 +12,22 @@ public abstract class RedisLock implements Lock {
 
     protected Jedis jedis;
     protected String lockKey;
+    protected String lockValue;
 
-    public RedisLock(Jedis jedis,String lockKey) {
+    public RedisLock(Jedis jedis, String lockKey) {
+        this(jedis, lockKey, UUID.randomUUID().toString()+Thread.currentThread().getId());
+    }
+
+    public RedisLock(Jedis jedis, String lockKey, String lockValue) {
         this.jedis = jedis;
         this.lockKey = lockKey;
+        this.lockValue = lockValue;
     }
 
 
-    public void sleepBySencond(int sencond){
+    public void sleepBySencond(int sencond) {
         try {
-            Thread.sleep(sencond*1000);
+            Thread.sleep(sencond * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -28,7 +35,8 @@ public abstract class RedisLock implements Lock {
 
 
     @Override
-    public void lockInterruptibly(){}
+    public void lockInterruptibly() {
+    }
 
     @Override
     public Condition newCondition() {
@@ -41,7 +49,7 @@ public abstract class RedisLock implements Lock {
     }
 
     @Override
-    public boolean tryLock(long time, TimeUnit unit){
+    public boolean tryLock(long time, TimeUnit unit) {
         return false;
     }
 
