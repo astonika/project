@@ -11,17 +11,18 @@ public class LockCase3 extends RedisLock {
 
     public LockCase3(Jedis jedis, String name) {
         super(jedis, name);
+
     }
 
     @Override
     public void lock() {
-        while (true) {
+        while(true){
             /**
              * 设置value为当前线程特有的值
              */
-            String result = jedis.set(lockKey, lockValue, NOT_EXIST, SECONDS, 30);
-            if (OK.equals(result)) {
-                System.out.println(Thread.currentThread().getId() + "加锁成功!");
+            String result = jedis.set(lockKey, lockValue, NOT_EXIST,SECONDS,30);
+            if(OK.equals(result)){
+                System.out.println(Thread.currentThread().getId()+"加锁成功!");
                 break;
             }
         }
@@ -36,8 +37,9 @@ public class LockCase3 extends RedisLock {
          * 3.如果相等则删除锁（解锁）
          */
         String lockValue = jedis.get(lockKey);
-        if (lockValue.equals(lockValue)) {
+        if (lockValue.equals(lockValue)){
             jedis.del(lockKey);
         }
+
     }
 }

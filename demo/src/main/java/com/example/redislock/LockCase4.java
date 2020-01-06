@@ -9,8 +9,9 @@ import static com.example.redislock.LockConstants.*;
  */
 public class LockCase4 extends RedisLock {
 
-    public LockCase4(Jedis jedis, String name) {
-        super(jedis, name);
+    public LockCase4(Jedis jedis, String lockKey) {
+        super(jedis, lockKey);
+
     }
 
     @Override
@@ -28,11 +29,10 @@ public class LockCase4 extends RedisLock {
     public void unlock() {
         // 使用lua脚本进行原子删除操作
         String checkAndDelScript = "if redis.call('get', KEYS[1]) == ARGV[1] then " +
-                "return redis.call('del', KEYS[1]) " +
-                "else " +
-                "return 0 " +
-                "end";
-
+                                    "return redis.call('del', KEYS[1]) " +
+                                    "else " +
+                                    "return 0 " +
+                                    "end";
         jedis.eval(checkAndDelScript, 1, lockKey, lockValue);
     }
 }

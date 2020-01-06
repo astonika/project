@@ -8,8 +8,9 @@ import static com.example.redislock.LockConstants.*;
 
 public class LockCase5 extends RedisLock {
 
-    public LockCase5(Jedis jedis, String name) {
-        super(jedis, name);
+    public LockCase5(Jedis jedis, String lockKey) {
+        super(jedis, lockKey);
+
     }
 
     @Override
@@ -17,7 +18,7 @@ public class LockCase5 extends RedisLock {
         while (true) {
             String result = jedis.set(lockKey, lockValue, NOT_EXIST, SECONDS, 30);
             if (OK.equals(result)) {
-                System.out.println("线程id:"+Thread.currentThread().getId() + "加锁成功!时间:"+ LocalTime.now());
+                System.out.println("线程id:"+Thread.currentThread().getId() + "加锁成功!时间:"+LocalTime.now());
 
                 //开启定时刷新过期时间
                 isOpenExpirationRenewal = true;
@@ -33,12 +34,14 @@ public class LockCase5 extends RedisLock {
     @Override
     public void unlock() {
         System.out.println("线程id:"+Thread.currentThread().getId() + "解锁!时间:"+LocalTime.now());
+
         String checkAndDelScript = "if redis.call('get', KEYS[1]) == ARGV[1] then " +
-                "return redis.call('del', KEYS[1]) " +
-                "else " +
-                "return 0 " +
-                "end";
+                                    "return redis.call('del', KEYS[1]) " +
+                                    "else " +
+                                    "return 0 " +
+                                    "end";
         jedis.eval(checkAndDelScript, 1, lockKey, lockValue);
         isOpenExpirationRenewal = false;
+
     }
 }

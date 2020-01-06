@@ -35,8 +35,8 @@ public class LockTest {
     public void testLockCase5() {
         //定义线程池
         ThreadPoolExecutor pool = new ThreadPoolExecutor(0, 10,
-                1, TimeUnit.SECONDS,
-                new SynchronousQueue<>());
+                                                        1, TimeUnit.SECONDS,
+                                                        new SynchronousQueue<>());
 
         //添加10个线程获取锁
         for (int i = 0; i < 10; i++) {
@@ -50,15 +50,14 @@ public class LockTest {
                     lock.sleepBySencond(15);
 
                     lock.unlock();
-                } catch (Exception e) {
+                } catch (Exception e){
                     e.printStackTrace();
                 }
             });
         }
 
         //当线程池中的线程数为0时，退出
-        while (pool.getPoolSize() != 0) {
-        }
+        while (pool.getPoolSize() != 0) {}
     }
 
 }

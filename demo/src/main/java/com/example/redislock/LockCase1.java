@@ -13,10 +13,10 @@ public class LockCase1 extends RedisLock {
 
     @Override
     public void lock() {
-        while (true) {
+        while(true){
             String result = jedis.set(lockKey, "value", NOT_EXIST);
-            if (OK.equals(result)) {
-                System.out.println(Thread.currentThread().getId() + "加锁成功!");
+            if(OK.equals(result)){
+                System.out.println(Thread.currentThread().getId()+"加锁成功!");
                 break;
             }
         }
