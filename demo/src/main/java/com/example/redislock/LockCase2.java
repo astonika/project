@@ -16,6 +16,7 @@ public class LockCase2 extends RedisLock {
             String result = jedis.set(lockKey, "value", NOT_EXIST,SECONDS,30);
             if(OK.equals(result)){
                 System.out.println(Thread.currentThread().getId()+"加锁成功!");
+                System.out.println(Thread.currentThread().getId()+"加锁成功!");
                 break;
             }
         }
