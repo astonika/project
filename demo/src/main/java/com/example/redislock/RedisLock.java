@@ -13,6 +13,7 @@ public abstract class RedisLock implements Lock {
     protected Jedis jedis;
     protected String lockKey;
     protected String lockValue;
+    protected volatile boolean isOpenExpirationRenewal = true;
 
     public RedisLock(Jedis jedis, String lockKey) {
         this(jedis, lockKey, UUID.randomUUID().toString()+Thread.currentThread().getId());
@@ -24,6 +25,34 @@ public abstract class RedisLock implements Lock {
         this.lockValue = lockValue;
     }
 
+    /**
+     * 刷新key的过期时间
+     */
+    private class ExpirationRenewal implements Runnable{
+        @Override
+        public void run() {
+            while (isOpenExpirationRenewal){
+                System.out.println("执行延迟失效时间中...");
+
+                String checkAndExpireScript = "if redis.call('get', KEYS[1]) == ARGV[1] then " +
+                        "return redis.call('expire',KEYS[1],ARGV[2]) " +
+                        "else " +
+                        "return 0 end";
+                jedis.eval(checkAndExpireScript, 1, lockKey, lockValue, "30");
+
+                //休眠10秒
+                sleepBySencond(10);
+            }
+        }
+    }
+
+    /**
+     * 开启定时刷新
+     */
+    protected void scheduleExpirationRenewal(){
+        Thread renewalThread = new Thread(new ExpirationRenewal());
+        renewalThread.start();
+    }
 
     public void sleepBySencond(int sencond) {
         try {
