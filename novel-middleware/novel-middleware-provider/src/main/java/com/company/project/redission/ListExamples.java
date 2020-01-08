@@ -5,6 +5,9 @@ import org.redisson.Redisson;
 import org.redisson.api.RList;
 import org.redisson.api.RedissonClient;
 
+/**
+ * https://zhuanlan.zhihu.com/p/86609750
+ */
 public class ListExamples {
     public static void main(String[] args) {
         // 默认连接上 127.0.0.1:6379
