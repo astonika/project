@@ -27,7 +27,7 @@
 		<spring-cloud-services.version>1.6.6.RELEASE</spring-cloud-services.version>
 		<spring-cloud-task.version>1.2.3.RELEASE</spring-cloud-task.version>
 		<spring-cloud.version>Edgware.SR5</spring-cloud.version>
-		<vaadin.version>8.4.4</vaadin.version>
+		<vaadin.version>8.14.1</vaadin.version>
 	</properties>
 
 	<dependencies>
