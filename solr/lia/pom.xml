@@ -142,7 +142,7 @@
 		<dependency>
 			<groupId>org.apache.nutch</groupId>
 			<artifactId>nutch</artifactId>
-			<version>1.0</version>
+			<version>1.18</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/lib/nutch-1.0.jar</systemPath>
 		</dependency>
