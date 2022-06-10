@@ -20,7 +20,7 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
 		<!-- <spring-boot.version>1.5.14.RELEASE</spring-boot.version> -->
-		<dubbo.version>2.6.2</dubbo.version>
+		<dubbo.version>2.6.12</dubbo.version>
 		<!-- <dubbo_all_version>2.6.0</dubbo_all_version> -->
 		<!-- <dubbo-spring-boot-starter.version>0.1.0</dubbo-spring-boot-starter.version> -->
 		<dubbo-spring-boot-starter.version>0.1.1</dubbo-spring-boot-starter.version>
